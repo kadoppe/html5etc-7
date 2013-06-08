@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+
+    <h1>ToDoリスト</h1>
+
+    <!-- Todox登録用フォーム -->
+    <form id="form">
+      名前: <input type="text" id="input_name">
+      優先度:  <input type="number" id="input_priority">
+      <input type="submit" id="input_submit" value="登録">
+    </form>
+
+    <!-- 並べ替えボタン表示エリア -->
+    <div id="controls">
+      <button id="button_sort_by_name">名前で並べ替え</button>
+      <button id="button_sort_by_priority">優先度で並べ替え</button>
+    </div>
+
+    <!-- Todo表示エリア -->
+    <ul id="todo_list">
+      <!--
+      <li class="todo">
+      名前：<span class="todo-name">豆腐を買う</span>
+      優先度：<span class="todo-priority">1</span>
+      </li>
+      <li class="todo">
+      名前：<span class="todo-name">納豆を買う</span>
+      優先度：<span class="todo-priority">1</span>
+      </li>
+      -->
+    </ul>
+
+    <div id="stats">
+      Todo数: <span id="todo_num">0</span>
+    </div>
+
+    <!-- 各種ライブラリの読み込み -->
+    <script src="lib/jquery-2.0.2.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+
+    <!-- アプリ用のJavaScriptコードを読み込み -->
+    <script src="js/todo.js"></script>
+
+    <script src="js/form_view.js"></script>
+    <script src="js/controls_view.js"></script>
+    <script src="js/todo_list_view.js"></script>
+    <script src="js/stats_view.js"></script>
+
+    <script src="js/app_view.js"></script>
+
+    <!-- ページ読み込み完了後に実行されるコード -->
+    <script>
+      $(function() {
+        window.appView = new AppView({collection: new Todos()});
+      });
+    </script>
+  </body>
+</html>
